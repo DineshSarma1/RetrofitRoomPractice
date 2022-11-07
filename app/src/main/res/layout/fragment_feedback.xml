@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="province"
+            type="com.example.retrofitroompractice4.data.province.Province" />
+
+        <variable
+            name="viewModel"
+            type="com.example.retrofitroompractice4.view.feedback.FeedbackViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.feedback.FeedbackFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/messageEt"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:autofillHints="message"
+                android:background="@color/list_item_background"
+                android:hint="@string/feedback_message"
+                android:inputType="text"
+                android:paddingHorizontal="5dp"
+                android:text="@={viewModel.message}"
+                android:textColor="@color/black"
+                android:textColorHint="#757575"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/ratingEt"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:autofillHints="5.0"
+                android:background="@color/list_item_background"
+                android:hint="@string/rating"
+                android:inputType="numberDecimal"
+                android:paddingHorizontal="5dp"
+                android:text="@={viewModel.rating}"
+                android:textColor="@color/black"
+                android:textColorHint="#757575"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:background="@color/cardview_dark_background"
+            android:onClick="@{() -> viewModel.onSaveClicked()}"
+            android:padding="5dp"
+            android:text="@string/save"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/list_item_background"
+            android:elevation="2dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@color/image_background_color"
+                android:contentDescription="@string/province_image"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{province.imageUrl}" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@{province.name}"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    tools:text="Province Title" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:paddingHorizontal="10dp"
+                    android:text="@{province.description}"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="14sp"
+                    tools:text="Province Title" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/feedbackRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:elevation="2dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </LinearLayout>
+</layout>

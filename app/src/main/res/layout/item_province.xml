@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="province"
+            type="com.example.retrofitroompractice4.data.province.Province" />
+        <variable
+            name="clickListener"
+            type="com.example.retrofitroompractice4.handlers.ProvinceClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/list_item_background"
+        android:elevation="2dp"
+        android:onClick="@{() -> clickListener.onProvinceClicked(province)}"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:imageUrl="@{province.imageUrl}"
+            android:scaleType="centerCrop"
+            android:background="@color/image_background_color"
+            android:contentDescription="@string/province_image"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@{province.name}"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:text="Province Title" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:paddingHorizontal="10dp"
+                android:text="@{province.description}"
+                android:textColor="@color/dark_grey"
+                android:textSize="14sp"
+                tools:text="Province Title" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

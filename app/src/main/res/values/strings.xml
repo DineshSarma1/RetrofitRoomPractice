@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RetrofitRoomPractice4</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="feedback_message">Feedback Message</string>
+    <string name="rating">Rating</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="province_image">Province image</string>
+</resources>
